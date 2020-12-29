@@ -40,6 +40,15 @@ int lps(string s)
 	return j;
 }
 
+int makePalindrome(string str)
+{
+	string rev = str;
+	reverse(rev.begin(), rev.end());
+	string newStr = str + '#' + rev;
+	int lpslen = lps(newStr);
+	return (str.length() - lpslen);
+}
+
 int32_t main()
 {
 #ifndef ONLINE_JUDGE
@@ -47,9 +56,8 @@ int32_t main()
 	freopen("out.txt", "w", stdout);
 #endif
 
-	string s = "aaaa";
-	cout << lps(s);
-
+	string str = "BABABAA";
+	cout << makePalindrome(str);
 
 	return 0;
 }
