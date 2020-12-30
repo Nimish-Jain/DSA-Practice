@@ -13,7 +13,7 @@ string solution(string s1, string s2)
 	{
 		char ch = s2[i];
 		if (map2.find(ch) == map2.end())
-			map2.insert(make_pair(ch, 1));
+			map2.insert(pair<char, int>(ch, 1));
 		else
 			map2[ch]++;
 	}
@@ -31,7 +31,7 @@ string solution(string s1, string s2)
 			i++;
 			char ch = s1[i];
 			if (map1.find(ch) == map1.end())
-				map1.insert(make_pair(ch, 1));
+				map1.insert(pair<char, int>(ch, 1));
 			else
 				map1[ch]++;
 
