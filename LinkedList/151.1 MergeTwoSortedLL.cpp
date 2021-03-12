@@ -16,6 +16,26 @@ public:
     }
 };
 
+//Optimized Working Solution, In place, no extra space
+Node* merge(Node*a, Node* b) {
+    //Base Cases
+    if (a == NULL) return b;
+    if (b == NULL) return a;
+
+    Node* c;
+    if (a->data < b->data) {
+        c = a;
+        c->next = merge(a->next, b);
+    }
+    else {
+        c = b;
+        c->next = merge(a, b->next);
+    }
+    return c;
+}
+
+
+//Attempt using map, not working
 node* mergeTwoSorted(node* &head1, node* &head2) {
     node* dummy = new node(0);
     node* temp = dummy;

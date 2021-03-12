@@ -16,6 +16,22 @@ public:
 	}
 };
 
+//Single pass ans using Runner Technique
+node* midPoint(node* head) {
+	if (head == NULL or head->next == NULL)
+		return head;
+	node* slow = head;
+	node* fast = head;
+
+	while (fast != NULL and fast->next != NULL) {
+		fast = fast->next->next;
+		slow = slow->next;
+	}
+	return slow;
+}
+
+
+//One Itr to calc length, then half to reach mid
 ListNode* middleNode(ListNode* head) {
 	int cnt = 0;
 	ListNode* n = head;
