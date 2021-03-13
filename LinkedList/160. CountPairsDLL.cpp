@@ -35,6 +35,21 @@ int countPairs(node* first, node* second, int data) {
     return cnt;
 }
 
+int countTriplets(node* head, int x) {
+    if (head == NULL) return 0;
+    node* curr, first, last;
+    int count = 0;
+    last = head;
+    while (last->next != NULL) last = last->next;
+
+    //traversing the entire doubly list
+    for (node* curr = head; curr != NULL; curr = curr->next) {
+        first = curr->next;
+        count += countPairs(first, last, x - curr->data);
+    }
+    return count;
+}
+
 int32_t main()
 {
 #ifndef ONLINE_JUDGE
