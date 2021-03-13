@@ -16,23 +16,36 @@ public:
     }
 };
 
-void splitList(Node *head, Node **head1_ref, Node **head2_ref)
-{
+Node* reverse(Node* &head) {
+    Node* prevptr = NULL;
+    Node* currptr = head;
+    Node* nextptr;
+
+    while (currptr) {           //while(currptr != NULL)
+        nextptr = currptr->next;
+        currptr->next = prevptr;
+
+        prevptr = currptr;
+        currptr = nextptr;
+    }
+    return prevptr;
+}
+
+bool isPlindrome(Node* head) {
     Node* slow = head;
     Node* fast = head;
-    while (fast->next != head and fast->next->next != head) {
+    while (fast != NULL and fast->next != NULL) {
         slow = slow->next;
         fast = fast->next->next;
     }
-    *head1_ref = head;
-    *head2_ref = slow->next;
-
-    slow->next = head;
-    Node* curr = *head2_ref;
-    while (curr->next != head) {
-        curr = curr->next;
+    fast = head;
+    slow = reverse(slow);
+    while (slow != NULL) {
+        if (fast->data != slow->data) return false;
+        slow = slow->next;
+        fast = fast->next;
     }
-    curr->next = *head2_ref;
+    return true;
 }
 
 
