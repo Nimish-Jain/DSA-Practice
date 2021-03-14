@@ -25,6 +25,23 @@ int height(node* root) {
 	return (max(ls, rs) + 1);
 }
 
+//O(n) time
+pair<int, int> fastDiameter(node* root) {
+	pair<int, int> p;
+	if (root == NULL) {
+		p.first = p.second = 0;
+		return p;
+	}
+
+	pair<int, int> left = fastDiameter(root->left);
+	pair<int, int> right = fastDiameter(root->right);
+
+	p.first = max(left.first, right.first) + 1;
+	p.second = max(left.first + right.first, max(left.second, right.second));
+	return p;
+}
+
+//O(n^2) time
 int Diameter(node* root) {
 	if (root == NULL) return 0;
 
