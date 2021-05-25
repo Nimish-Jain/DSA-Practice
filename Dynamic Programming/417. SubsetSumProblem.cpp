@@ -73,6 +73,26 @@ int equalPartition(int N, int arr[])
 // 	}
 // }
 
+//RECURSIVE SOLUTION
+// int solve(int arr[], int n, int sum){
+//     if(sum==0)
+//         return 1;
+//     else if(n==0 or sum<0)
+//         return 0;
+
+//     return solve(arr, n-1, sum-arr[n-1]) or solve(arr, n-1, sum);
+// }
+
+// int equalPartition(int N, int arr[])
+// {
+//     //code here
+//     int sum = 0;
+//     sum = accumulate(arr, arr+N, sum);
+//     if(sum%2!=0)
+//         return 0;
+//     else
+//         return solve(arr,N,sum/2);
+// }
 
 int32_t main()
 {
