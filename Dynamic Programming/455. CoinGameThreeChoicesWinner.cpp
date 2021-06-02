@@ -23,6 +23,7 @@ int solve(int n, int x, int y, int z) {
 	int b = 1 + solve(n - y, x, y, z);
 	int c = 1 + solve(n - z, x, y, z);
 
+	//After any of the cases the ans is odd that means we can pick last ie next, hence we win
 	if (a % 2 == 1 || b % 2 == 1 || c % 2 == 1)
 		return dp[n] = 1;
 	return dp[n] = 0;
