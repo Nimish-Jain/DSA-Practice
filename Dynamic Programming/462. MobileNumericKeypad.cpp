@@ -34,7 +34,7 @@ long long solve(int i, int j, int n) {
 	if (i - 1 >= 0 and mat[i - 1][j] != -1)
 		d = solve(i - 1, j, n - 1);
 
-	if (i + 1 <= 2 and mat[i + 1][j] != -1)
+	if (i + 1 <= 3 and mat[i + 1][j] != -1)
 		e = solve(i + 1, j, n - 1);
 
 	return dp[mat[i][j]][n] = a + b + c + d + e;
