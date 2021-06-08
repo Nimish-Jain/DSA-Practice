@@ -46,7 +46,7 @@ vector<string> findPath(vector<vector<int>> &m, int n) {
 	if (m[n - 1][n - 1] == 0)
 		return ans;
 
-	string s = "";
+	string s;
 
 	dfs(0, 0, s, m, n, visited);
 	sort(ans.begin(), ans.end());
@@ -63,7 +63,7 @@ int32_t main()
 #endif
 
 	int n = 4;
-	std::vector<vector<int>> m = {{1, 0, 0, 0},
+	vector<vector<int>> m = {{1, 0, 0, 0},
 		{1, 1, 0, 1},
 		{1, 1, 0, 0},
 		{0, 1, 1, 1}
