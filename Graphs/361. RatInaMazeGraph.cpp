@@ -4,7 +4,6 @@
 
 using namespace std;
 
-
 vector<string> ans;
 
 void dfs(int i, int j, string s, vector<vector<int> > &m, int n, vector<vector<bool>> &visited) {
@@ -63,7 +62,17 @@ int32_t main()
 	freopen("out.txt", "w", stdout);
 #endif
 
+	int n = 4;
+	std::vector<vector<int>> m = {{1, 0, 0, 0},
+		{1, 1, 0, 1},
+		{1, 1, 0, 0},
+		{0, 1, 1, 1}
+	};
 
+	vector<string> answer = findPath(m, 4);
+
+	for (int i = 0; i < answer.size(); ++i)
+		cout << answer[i] << endl;
 
 	return 0;
 }
