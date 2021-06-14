@@ -4,15 +4,6 @@
 
 using namespace std;
 
-bool isCycle(int V, vector<int>adj[])
-{
-	vector<bool> visited(V, false);
-	for (int i = 0; i < V; i++)
-		if (!visited[i] && cycle(adj, i, -1, visited))
-			return true;
-	return false;
-}
-
 bool cycle(vector<int> adj[], int curr, int parent, vector<bool> &visited)
 {
 	visited[curr] = true;
@@ -26,6 +17,15 @@ bool cycle(vector<int> adj[], int curr, int parent, vector<bool> &visited)
 		else if (nbr != parent)
 			return true;
 
+	return false;
+}
+
+bool isCycle(int V, vector<int>adj[])
+{
+	vector<bool> visited(V, false);
+	for (int i = 0; i < V; i++)
+		if (!visited[i] && cycle(adj, i, -1, visited))
+			return true;
 	return false;
 }
 
